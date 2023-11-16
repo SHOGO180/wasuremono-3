@@ -1,0 +1,115 @@
+$cWhite: white;
+$cBlack: black;
+$cOrange: rgb(255, 115, 0);
+
+body {
+  margin: 0;
+  background-color: $cOrange;
+  color: $cBlack;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+.description {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.container {
+  width: 80%;
+  background-color: $cWhite;
+  margin: 0 auto;
+  padding: 16px;
+
+.container2 {
+    text-align: center;
+  }
+
+    & input.text-holder {
+      width: 70%;
+      height: 40px;
+      border-color: $cOrange;
+      border-style: inset;
+      border-width: 4px;
+      padding: 4px;
+      font-size: 16px;
+    }
+
+    & button.add {
+      width: 70%;
+      height: 46px;
+      border: none;
+      // margin-left: 8px;
+      margin-top: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      background-color: $cOrange;
+      color: $cWhite;
+      border-radius: 16px;
+      transition: all 0.5s ease;
+
+      &:hover {
+        background-color: $cBlack;
+      }
+    }
+
+    & button.reset {
+      width: 70%;
+      height: 46px;
+      border: none;
+      // margin-left: 8px;
+      margin-top: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      color: $cBlack;
+      border-radius: 16px;
+      transition: all 0.5s ease;
+
+      &:hover {
+        background-color: $cOrange;
+        color: $cWhite;
+      }
+    }
+
+    & ul {
+      padding: 0;
+      text-align: center;
+    }
+
+    & ul > li {
+      margin-bottom: 16px;
+      font-size: 24px;
+      list-style: none;
+
+      & input {
+        width: 20px;
+        height: 20px;
+      }
+
+      & button {
+        border: none;
+        font-size: 13px;
+        cursor: pointer;
+        background-color: $cOrange;
+        color: $cWhite;
+        border-radius: 8px;
+        padding: 8px;
+        margin: 8px 0 8px 0;
+        transition: all 0.5s ease;
+
+        &:hover {
+          background-color: $cBlack;
+        }
+      }
+    }
+}
+
+.copy-right {
+  text-align: center;
+  color: $cWhite;
+  font-size: 13px;
+  font-weight: 200;
+}
