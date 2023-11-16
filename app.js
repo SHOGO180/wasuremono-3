@@ -18,6 +18,7 @@ function displayItems() {
     li.innerHTML = `
     <input type="checkbox" id="strike${index}" ${item.strikethrough ? 'checked' : ''}>
     ${item.text} 
+    <button onclick="editItem(${index})">編集</button>
     <button onclick="removeItem(${index})">削除</button>
     `;
 
@@ -29,7 +30,8 @@ function displayItems() {
       item.strikethrough = checkbox.checked;
       saveItems();
 
-      li.style.textDecoration = item.strikethrough ? 'line-through' : 'none';
+      const textSpan = li.querySelector(`#text${index}`);
+      textSpan.style.textDecoration = item.strikethrough ? 'line-through' : 'none';
     });
   });
 }
@@ -46,6 +48,16 @@ function addItem() {
     });
     saveItems();
     itemInput.value = '';
+    displayItems();
+  }
+}
+
+function editItem(index) {
+  const newText = prompt('アイテムを編集', savedItems[index].text);
+
+  if(newText !== null) {
+    savedItems[index].text = newText.trim();
+    saveItems();
     displayItems();
   }
 }
