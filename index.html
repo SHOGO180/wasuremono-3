@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,34 +8,32 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@200;500;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
   <div class="container">
     <h1>忘れ物管理アプリ!!!</h1>
     <p class="description">毎朝必ず用意するものを事前に記入して、
-      <br>朝出る前に  チェックして忘れ物をなくそう♫
+      <br>朝出る前に チェックして忘れ物をなくそう♫
     </p>
     <div class="container2">
       <input type="text" class="text-holder" id="item" placeholder="忘れ物チェッ
 クリストを追加する">
-
       <button class="add" onclick="addItem()">追加</button>
       <button class="reset" onclick="removeStrikethrough()">リセット</button>
     </div>
 
-      <ul id="itemList">ああああああ</ul>
-    
+    <ul id="itemList"></ul>
   </div>
 
   <script src="app.js"></script>
-  
+
   <footer>
     <p class="copy-right">
       Copyright &#169;180° School
     </p>
-</footer>
+  </footer>
 </body>
 
 </html>

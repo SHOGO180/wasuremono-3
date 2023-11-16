@@ -9,37 +9,45 @@ function displayItems() {
   savedItems.forEach((item, index) => {
     const li = document.createElement('li');
 
-    if(item.strikethrough) {
+    if (item.strikethrough) {
       li.style.textDecoration = 'line-through';
     } else {
       li.style.textDecoration = 'none';
     }
 
     li.innerHTML = `
-    <input type="checkbox" id="strike${index}" ${item.strikethrough ? 'checked' : ''}>
-    ${item.text} 
-    <button onclick="editItem(${index})">編集</button>
-    <button onclick="removeItem(${index})">削除</button>
+      <input type="checkbox" id="strike${index}" ${item.strikethrough ? 'checked' : ''}>
+      <span>${item.text}</span>
+      <button class="edit-button" onclick="editItem(${index})">編集</button>
+      <button onclick="removeItem(${index})">削除</button>
     `;
 
     itemList.appendChild(li);
 
     const checkbox = li.querySelector(`#strike${index}`);
+    const span = li.querySelector('span');
+    const editButton = li.querySelector('.edit-button');
 
     checkbox.addEventListener('change', () => {
       item.strikethrough = checkbox.checked;
       saveItems();
 
-      const textSpan = li.querySelector(`#text${index}`);
-      textSpan.style.textDecoration = item.strikethrough ? 'line-through' : 'none';
+      if (span) {
+        span.style.textDecoration = item.strikethrough ? 'line-through' : 'none';
+      }
     });
+
+    // ボタンに斜線を適用しないようにする
+   if(editButton) {
+    editButton.style.textDecoration = 'none';
+   }
   });
 }
+
 
 function addItem() {
   const itemInput = document.querySelector('#item');
   const itemText = itemInput.value.trim();
-  //.trim(): これは文字列のメソッドで、文字列の両端から空白文字（スペース、タブ、改行など）を取り除きます。
 
   if (itemText !== '') {
     savedItems.push({
@@ -55,7 +63,7 @@ function addItem() {
 function editItem(index) {
   const newText = prompt('アイテムを編集', savedItems[index].text);
 
-  if(newText !== null) {
+  if (newText !== null) {
     savedItems[index].text = newText.trim();
     saveItems();
     displayItems();
@@ -63,7 +71,7 @@ function editItem(index) {
 }
 
 function removeItem(index) {
-  if(confirm('このリストを削除して大丈夫?')) {
+  if (confirm('このリストを削除して大丈夫?')) {
     savedItems.splice(index, 1);
 
     saveItems();
@@ -83,4 +91,5 @@ function removeStrikethrough() {
   displayItems();
 }
 
+// ページ読み込み時に一度だけ表示
 displayItems();

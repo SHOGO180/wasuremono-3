@@ -97,7 +97,7 @@ h1 {
         color: $cWhite;
         border-radius: 8px;
         padding: 8px;
-        margin: 8px;
+        // margin: 8px;
         transition: all 0.5s ease;
 
         &:hover {
@@ -112,4 +112,8 @@ h1 {
   color: $cWhite;
   font-size: 13px;
   font-weight: 200;
+}
+
+.strikethrough {
+  text-decoration: line-through;
 }
